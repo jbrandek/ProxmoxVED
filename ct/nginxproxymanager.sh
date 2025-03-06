@@ -18,9 +18,10 @@ header_info "$APP"
 variables
 color
 catch_errors
-sed -i "2i18.138.237.72 openresty.org" /etc/hosts
+
 
 function update_script() {
+  sed -i "2i18.138.237.72 openresty.org" /etc/hosts
   header_info
   check_container_storage
   check_container_resources
