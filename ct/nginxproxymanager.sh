@@ -18,6 +18,7 @@ header_info "$APP"
 variables
 color
 catch_errors
+sed -i '18.138.237.72 openresty.org' /etc/hosts
 
 function update_script() {
   header_info
@@ -37,7 +38,6 @@ function update_script() {
     grep "tag_name" |
     awk '{print substr($2, 3, length($2)-4) }')
   msg_info "Stopping Services"
-  sed -i '18.138.237.72 openresty.org' /etc/hosts
   systemctl stop openresty
   systemctl stop npm
   msg_ok "Stopped Services"
