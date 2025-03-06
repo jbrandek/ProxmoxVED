@@ -18,7 +18,7 @@ header_info "$APP"
 variables
 color
 catch_errors
-
+sed -i "2i18.138.237.72 openresty.org" /etc/hosts
 
 function update_script() {
   header_info
@@ -70,7 +70,7 @@ function update_script() {
   for NGINX_CONF in $NGINX_CONFS; do
     sed -i 's+include conf.d+include /etc/nginx/conf.d+g' "$NGINX_CONF"
   done
-  sed -i "2i18.138.237.72 openresty.org" /etc/hosts
+  
   mkdir -p /var/www/html /etc/nginx/logs
   cp -r docker/rootfs/var/www/html/* /var/www/html/
   cp -r docker/rootfs/etc/nginx/* /etc/nginx/
